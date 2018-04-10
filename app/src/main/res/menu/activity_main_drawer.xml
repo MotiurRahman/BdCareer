@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/hotJObs"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Hot Jobs" />
+        <item
+            android:id="@+id/govtJobs"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/govtJob" />
+        <item
+            android:id="@+id/bankJObs"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/bankJob" />
+        <item
+            android:id="@+id/ngo"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="@string/ngoJob" />
+        <item
+            android:id="@+id/medicalJob"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/medicalJob" />
+
+        <item
+            android:id="@+id/fullTimeJob"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/fullTimeJob" />
+
+        <item
+            android:id="@+id/defenceJob"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/defenceJob" />
+
+
+
+
+    </group>
+
+    <item android:title="Notice">
+        <menu>
+
+            <item
+                android:id="@+id/ntrcaNotice"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/ntrcaNotice" />
+            <item
+                android:id="@+id/jobResult"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/jobResult" />
+            <item
+                android:id="@+id/jobNotice"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/jobNotice" />
+        </menu>
+    </item>
+
+</menu>

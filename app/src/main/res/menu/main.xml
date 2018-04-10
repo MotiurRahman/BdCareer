@@ -1,0 +1,34 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="chakrirkhobor.bd.com.chakrirkhobor.ChakrirKhobor">
+    <item
+        android:id="@+id/home"
+        android:orderInCategory="100"
+        android:title="@string/home"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_facebook"
+        android:orderInCategory="100"
+        android:title="@string/action_facebook"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/update"
+        android:orderInCategory="100"
+        android:title="@string/update"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_ratings"
+        android:orderInCategory="100"
+        android:title="@string/action_ratings"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_close"
+        android:orderInCategory="100"
+        android:title="@string/close"
+        app:showAsAction="never" />
+</menu>

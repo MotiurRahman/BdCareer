@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">BdCareer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_facebook">Facebook Page</string>
+    <string name="action_apps">More Apps</string>
+    <string name="update">Update this App</string>
+    <string name="close">Exit App</string>
+    <string name="home">Home</string>
+    <string name="action_ratings">Rate this App</string>
+    <string name="bankJob">Bank Jobs</string>
+    <string name="fullTimeJob">Full-Time Jobs</string>
+    <string name="govtJob">Govt Jobs</string>
+    <string name="ngoJob">NGO Jobs</string>
+    <string name="hotJob">Hot Jobs</string>
+    <string name="medicalJob">Medical Job</string>
+    <string name="jobNotice">Job Notice</string>
+    <string name="jobResult">Job Results</string>
+    <string name="defenceJob">Defense Jobs</string>
+    <string name="ntrcaNotice">NTRCA</string>
+
+
+
+
+
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
+
+
+</resources>
