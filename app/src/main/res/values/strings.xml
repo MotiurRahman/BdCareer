@@ -15,18 +15,16 @@
     <string name="govtJob">Govt Jobs</string>
     <string name="ngoJob">NGO Jobs</string>
     <string name="hotJob">Hot Jobs</string>
-    <string name="medicalJob">Medical Job</string>
+    <string name="medicalJob">Medical Jobs</string>
     <string name="jobNotice">Job Notice</string>
     <string name="jobResult">Job Results</string>
     <string name="defenceJob">Defense Jobs</string>
     <string name="ntrcaNotice">NTRCA</string>
 
+    <string name="ok">Okay</string>
+    <string name="bdJobs">All Bd Jobs</string>
+    <string name="bdResult">All Exam Results</string>
 
-
-
-
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
 
 
 </resources>

@@ -1,15 +1,16 @@
 package bdcareer.bd.com.bdcareer;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.KeyEvent;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,16 +20,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.onesignal.OneSignal;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity
     private ProgressBar proBar;
     private WebView bdcareer;
     public static String FACEBOOK_URL = "https://www.facebook.com/bdcareers/";
-    public static String FACEBOOK_PAGE_ID = "683673531760837";
+    public static String FACEBOOK_PAGE_ID = "247250839266858";
+
 
 
     @Override
@@ -71,9 +72,10 @@ public class MainActivity extends AppCompatActivity
 
         //Improve wevView performance
 
+        bdcareer.clearCache(true);
         bdcareer.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
         bdcareer.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-        bdcareer.getSettings().setAppCacheEnabled(true);
+        bdcareer.getSettings().setAppCacheEnabled(false);
         bdcareer.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         bdcareer.setInitialScale(1);
         bdcareer.getSettings().setDisplayZoomControls(false);
@@ -94,34 +96,13 @@ public class MainActivity extends AppCompatActivity
 
         proBar = (ProgressBar) findViewById(R.id.progressBar1);
 
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor("#009688"));
+        }
 
-        //Floting action button
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (isNetworkConnected()) {
-
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-
-                    i.setData(Uri.parse("market://details?id=motiur_bdresult.bd.com.bdresult"));
-                    startActivity(i);
-
-                } else {
-                    Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-
-
-        // Load an ad into the AdMob banner view.
-        AdView adView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .setRequestAgent("android_studio:ad_template").build();
-        adView.loadAd(adRequest);
-        MobileAds.initialize(this, "ca-app-pub-1090282204928094~4758004250");
 
 
         // OneSignal Initialization
@@ -190,7 +171,8 @@ public class MainActivity extends AppCompatActivity
     //End internet connection
 
 
-    @Override
+
+        @Override
     public void onBackPressed() {
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -248,6 +230,32 @@ public class MainActivity extends AppCompatActivity
 
 
         if (id == R.id.update) {
+//            String currentVersion =null;
+//
+//            try {
+//                 currentVersion = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+//            } catch (PackageManager.NameNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//
+//            // 1. Instantiate an AlertDialog.Builder with its constructor
+//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//
+//            // 2. Chain together various setter methods to set the dialog characteristics
+//            builder.setMessage("Your Current Version:"+currentVersion);
+//            builder .setTitle("Update Version");
+//
+//            builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+//                public void onClick(DialogInterface dialog, int id) {
+//                    dialog.dismiss();
+//                }
+//            });
+//
+//            // 3. Get the AlertDialog from create()
+//            AlertDialog dialog = builder.create();
+//
+//            dialog.show();
+
 
             if (isNetworkConnected()) {
                 Intent devAccount = new Intent(Intent.ACTION_VIEW);
@@ -354,7 +362,30 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.jobNotice) {
             bdcareer.loadUrl("https://bd-career.org/category/job-notice/");
 
+        }else if (id == R.id.bdResult) {
+
+            if (isNetworkConnected()) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("market://details?id=motiur_bdresult.bd.com.bdresult"));
+                startActivity(intent);
+            } else {
+                Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+            }
+
+
+        }else if (id == R.id.bdJobs) {
+
+            if (isNetworkConnected()) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("market://details?id=motiur_bdjobs.bd.com.allbdjobs"));
+                startActivity(i);
+            } else {
+                Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+            }
+
+
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
